@@ -25,12 +25,13 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-        name="index/index"
-        options={{
-          title: 'Início',
-          tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
-        }}
-      />
+  name="home/index"
+  options={{
+    title: 'Início',
+    tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
+  }}
+/>
+
       <Tabs.Screen
         name="sobre/index"
         options={{
