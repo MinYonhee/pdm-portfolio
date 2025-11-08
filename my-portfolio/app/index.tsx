@@ -7,5 +7,5 @@ export default function Index() {
   //
   // O Expo Router então carregará o layout de abas (app/(tabs)/_layout.jsx)
   // e a tela inicial desse grupo (app/(tabs)/index.jsx).
-  return <Redirect href="/(tabs)/" />;
+  return <Redirect href="/(tabs)/home" />;
 }
