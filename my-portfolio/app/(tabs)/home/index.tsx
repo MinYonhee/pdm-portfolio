@@ -58,14 +58,14 @@ export default function HomeScreen() {
 
   return (
     <ImageBackground
-      source={require('../../../assets/background.jpg')}
+     // source={require('../../../assets/background.jpg')}
       style={styles.homeSection}
       resizeMode="cover"
       imageStyle={{ opacity: 0.5 }}
     >
       <View style={styles.homeContent}>
         <Image
-          source={require('../../../assets/perfil.jpg')}
+          //source={require('../../../assets/perfil.jpg')}
           style={styles.profileImage}
         />
         <Text style={styles.name}>Beatriz Costa</Text>
