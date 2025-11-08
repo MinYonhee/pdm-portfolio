@@ -63,7 +63,7 @@ export default function SobreScreen() {
     <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.container}>
       <View style={styles.headerContainer}>
         <Image
-          source={require('../../assets/profile.jpg')}
+          source={require('../../../assets/profile.jpg')}
           style={styles.profileImage}
         />
         <Text style={styles.sectionTitle}>Sobre mim</Text>
