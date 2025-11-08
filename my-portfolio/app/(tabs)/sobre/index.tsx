@@ -63,8 +63,7 @@ export default function SobreScreen() {
     <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.container}>
       <View style={styles.headerContainer}>
         <Image
-          // Substitua pelo seu {require('../../assets/profile.jpg')}
-          source={{ uri: 'https://placehold.co/150x150/E0BBE4/301934?text=Bia' }}
+          source={require('../../assets/profile.jpg')}
           style={styles.profileImage}
         />
         <Text style={styles.sectionTitle}>Sobre mim</Text>
