@@ -1,70 +1,72 @@
-import React from 'react';
 import { Tabs } from 'expo-router';
-import { FontAwesome, MaterialIcons, Ionicons } from '@expo/vector-icons';
-// Você pode precisar instalar: npx expo install @expo/vector-icons
+import React from 'react';
+import { FontAwesome } from '@expo/vector-icons';
+
+import { useTheme } from '../../context/ThemeContext';
 
 export default function TabLayout() {
-return (
-<Tabs
-screenOptions={{
-tabBarActiveTintColor: '#007AFF', // Cor da aba ativa (ex: azul)
-tabBarInactiveTintColor: '#8E8E93', // Cor da aba inativa (ex: cinza)
-tabBarStyle: {
-backgroundColor: '#FFFFFF', // Fundo da barra de abas
-},
-headerStyle: {
-backgroundColor: '#FFFFFF',
-},
-headerTitleStyle: {
-fontWeight: 'bold',
-},
-}}
->
-<Tabs.Screen
-name="index"
-options={{
-title: 'Início',
-tabBarIcon: ({ color }) => (
-<FontAwesome size={26} name="home" color={color} />
-),
-}}
-/>
-<Tabs.Screen
-name="sobre"
-options={{
-title: 'Sobre',
-tabBarIcon: ({ color }) => (
-<FontAwesome size={24} name="user" color={color} />
-),
-}}
-/>
-<Tabs.Screen
-name="academico"
-options={{
-title: 'Formação',
-tabBarIcon: ({ color }) => (
-<Ionicons size={26} name="school" color={color} />
-),
-}}
-/>
-<Tabs.Screen
-name="profissional"
-options={{
-title: 'Carreira',
-tabBarIcon: ({ color }) => (
-<MaterialIcons size={26} name="work" color={color} />
-),
-}}
-/>
-<Tabs.Screen
-name="projetos"
-options={{
-title: 'Projetos',
-tabBarIcon: ({ color }) => (
-<FontAwesome size={24} name="lightbulb-o" color={color} />
-),
-}}
-/>
-</Tabs>
-);
+  const { colors, theme } = useTheme();
+
+  return (
+    <Tabs
+      screenOptions={{
+        tabBarActiveTintColor: colors.DUSTY_PURPLE,
+        tabBarInactiveTintColor: colors.tabInactive,
+        tabBarStyle: {
+          backgroundColor: colors.tabBar,
+          borderTopColor: colors.line,
+        },
+        headerStyle: {
+          backgroundColor: colors.background,
+        },
+        headerTitleStyle: {
+          color: colors.text,
+        },
+      }}
+    >
+      <Tabs.Screen
+        name="index/index"
+        options={{
+          title: 'Início',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="sobre/index"
+        options={{
+          title: 'Sobre',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="user" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="academico/index"
+        options={{
+          title: 'Formação',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="graduation-cap" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="profissional/index"
+        options={{
+          title: 'Carreira',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="suitcase" color={color} />,
+        }}
+      />
+      <Tabs.Screen
+        name="projetos/index"
+        options={{
+          title: 'Projetos',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="briefcase" color={color} />,
+        }}
+      />
+      {/* Nova aba de Contato */}
+      <Tabs.Screen
+        name="contato/index"
+        options={{
+          title: 'Contato',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="comments" color={color} />,
+        }}
+      />
+    </Tabs>
+  );
 }

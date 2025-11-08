@@ -1,0 +1,112 @@
+import { StyleSheet } from 'react-native';
+
+export const COLORS = {
+  white: '#FFFFFF',
+  darkBlackberry: '#301934',
+  dustyPurple: '#8E8E93',
+  grapeGlimmer: '#F0E8F7',
+  sheerLilac: '#D1C4E9',
+};
+
+export const styles = StyleSheet.create({
+  homeSection: {
+    flex: 1, 
+    justifyContent: 'center', 
+    alignItems: 'center', 
+    width: '100%',
+    height: '100%',
+  },
+  homeContent: {
+    flex: 1, 
+    width: '90%', 
+    maxWidth: 500,
+    justifyContent: 'center',
+    alignItems: 'center',
+    padding: 20,
+  },
+  profileImage: {
+    width: 150,
+    height: 150,
+    borderRadius: 75, 
+    borderWidth: 2,
+    borderColor: COLORS.white,
+    marginBottom: 20,
+    elevation: 10,
+    shadowColor: COLORS.darkBlackberry,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.3,
+    shadowRadius: 24,
+  },
+  name: {
+    fontSize: 42,
+    fontWeight: '700',
+    color: COLORS.darkBlackberry,
+    marginBottom: 10,
+    textAlign: 'center',
+  },
+  title: {
+    fontSize: 18,
+    color: COLORS.dustyPurple,
+    fontWeight: '400',
+    textAlign: 'center',
+    lineHeight: 25, 
+    marginBottom: 15,
+    paddingHorizontal: 10,
+  },
+  socialIcons: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    gap: 15, 
+    marginVertical: 10,
+  },
+  iconButton: {
+    padding: 8,
+    borderRadius: 25, 
+    backgroundColor: 'transparent',
+  },
+  icon: {
+  },
+  hireButton: {
+    backgroundColor: COLORS.dustyPurple,
+    paddingVertical: 16,
+    paddingHorizontal: 40,
+    borderRadius: 50,
+    marginVertical: 20,
+    elevation: 8,
+    shadowColor: COLORS.darkBlackberry,
+    shadowOffset: { width: 0, height: 8 },
+    shadowOpacity: 0.3,
+    shadowRadius: 20,
+  },
+  hireButtonText: {
+    color: COLORS.white,
+    fontSize: 16,
+    fontWeight: '600',
+  },
+  scrollDown: {
+    alignItems: 'center',
+    marginTop: 15, 
+  },
+  scrollText: {
+    color: COLORS.dustyPurple,
+    fontSize: 14,
+    fontWeight: '500',
+  },
+  mouseIcon: {
+    width: 20,
+    height: 32,
+    borderWidth: 2,
+    borderColor: COLORS.dustyPurple,
+    borderRadius: 12,
+    marginTop: 10,
+  },
+  mouseScroll: {
+    width: 3,
+    height: 6,
+    backgroundColor: COLORS.dustyPurple,
+    borderRadius: 2,
+    position: 'absolute', 
+    left: '50%', 
+    marginLeft: -1.5, 
+  },
+});
