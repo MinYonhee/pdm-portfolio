@@ -1,31 +1,33 @@
 import React, { useRef, useEffect } from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, Linking, Animated } from 'react-native';
-// Importando os estilos do arquivo separado
-import { styles, skillColors } from './styles';
+import { createStyles } from './styles'; 
+import { useTheme } from '../../../context/ThemeContext'; 
 
-// --- Tipagem ---
+const skillColors = {
+  marketing: '#8E44AD', 
+  uiux: '#3498DB',      
+  dev: '#E67E22',       
+};
+
 interface SkillBarProps {
   skill: string;
   percentage: number;
   color: string;
+  styles: any; 
 }
 
-// --- Componente da Barra de Habilidade com Animação ---
-const SkillBar = ({ skill, percentage, color }: SkillBarProps) => {
-  // 'useRef' para guardar o valor da animação
+const SkillBar = ({ skill, percentage, color, styles }: SkillBarProps) => {
   const widthAnim = useRef(new Animated.Value(0)).current;
 
-  // 'useEffect' para disparar a animação quando o componente montar
   useEffect(() => {
     Animated.timing(widthAnim, {
-      toValue: percentage, // Anima até o valor da porcentagem
-      duration: 1500, // (ex: animation: loadSkill 2s)
-      delay: 500, // Um pequeno atraso para começar
-      useNativeDriver: false, // 'width' não é suportado pelo native driver
+      toValue: percentage,
+      duration: 1500,
+      delay: 500,
+      useNativeDriver: false,
     }).start();
   }, [widthAnim, percentage]);
 
-  // Interpola o valor numérico (0-100) para uma string ('0%' - '100%')
   const animatedWidth = widthAnim.interpolate({
     inputRange: [0, 100],
     outputRange: ['0%', '100%'],
@@ -43,7 +45,7 @@ const SkillBar = ({ skill, percentage, color }: SkillBarProps) => {
             styles.skillLevel,
             {
               backgroundColor: color,
-              width: animatedWidth, // Aplica a largura animada
+              width: animatedWidth,
             },
           ]}
         />
@@ -52,10 +54,11 @@ const SkillBar = ({ skill, percentage, color }: SkillBarProps) => {
   );
 };
 
-// --- Componente principal ---
 export default function SobreScreen() {
+  const { colors } = useTheme();
+  const styles = createStyles(colors);
+
   const handlePressCV = () => {
-    // Substitua pela URL real do seu CV
     Linking.openURL('https://www.canva.com/design/DAGVXOH0vzU/czuQT-3rM9N2KUBkWKts7g/edit?continue_in_browser=true');
   };
 
@@ -63,7 +66,7 @@ export default function SobreScreen() {
     <ScrollView style={styles.scrollContainer} contentContainerStyle={styles.container}>
       <View style={styles.headerContainer}>
         <Image
-          source={require('../../../assets/profile.jpg')}
+          source={require('../../../assets/profile.jpg')}  
           style={styles.profileImage}
         />
         <Text style={styles.sectionTitle}>Sobre mim</Text>
@@ -80,9 +83,10 @@ export default function SobreScreen() {
 
       <View style={styles.card}>
         <View style={styles.skillsContainer}>
-          <SkillBar skill="Marketing" percentage={90} color={skillColors.marketing} />
-          <SkillBar skill="UI/UX Design" percentage={80} color={skillColors.uiux} />
-          <SkillBar skill="Desenvolvimento" percentage={60} color={skillColors.dev} />
+          {/* 💡 7. Passamos 'styles' como prop para o SkillBar */}
+          <SkillBar skill="Marketing" percentage={90} color={skillColors.marketing} styles={styles} />
+          <SkillBar skill="UI/UX Design" percentage={80} color={skillColors.uiux} styles={styles} />
+          <SkillBar skill="Desenvolvimento" percentage={60} color={skillColors.dev} styles={styles} />
         </View>
       </View>
     </ScrollView>

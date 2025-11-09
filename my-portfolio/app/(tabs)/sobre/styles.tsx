@@ -1,35 +1,26 @@
 import { StyleSheet } from 'react-native';
 
-// Objeto de cores (também movido para cá)
-export const skillColors = {
-  marketing: '#FBC02D', // Um amarelo mais vibrante (ex: --color-dusty-purple)
-  uiux: '#E53935',       // Um vermelho (ex: --color-sheer-lilac)
-  dev: '#1E88E5',        // Um azul (ex: --color-dark-blackberry)
-};
-
-// Exporta o objeto de estilos
-export const styles = StyleSheet.create({
+export const createStyles = (colors: any) => StyleSheet.create({
   scrollContainer: {
     flex: 1,
-    backgroundColor: '#F5F5F7', // Cor de fundo geral (ex: --color-white / --color-grape-glimmer)
+    backgroundColor: colors.background,
   },
   container: {
-    padding: 20,
-    alignItems: 'center', // Alinha tudo ao centro, como no @media query
+    paddingTop: 80,
+    paddingHorizontal: 20,
+    alignItems: 'center', 
   },
-  // (ex: .about-wrapper e .about-left-content)
   headerContainer: {
     alignItems: 'center',
     marginBottom: 30,
   },
-  // (ex: .about-image)
   profileImage: {
-    width: 150, // (ex: clamp(120px, 30vw, 190px))
+    width: 150, 
     height: 150,
-    borderRadius: 75, // (ex: 50%)
+    borderRadius: 75, 
     borderWidth: 5,
-    borderColor: '#FFFFFF', // (ex: border: 8px solid var(--color-white))
-    shadowColor: "rgba(80, 52, 89, 0.15)", // (ex: box-shadow)
+    borderColor: colors.cardBackground, 
+    shadowColor: colors.shadow, 
     shadowOffset: {
       width: 0,
       height: 10,
@@ -40,19 +31,18 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
   },
   sectionTitle: {
-    fontSize: 24, // (ex: clamp(1.8rem, 5vw, 2.5rem))
+    fontSize: 24, 
     fontWeight: '700',
-    color: '#301934', // (ex: --color-dark-blackberry)
-    marginBottom: 20,
+    color: colors.text, 
+    marginBottom: 0.5,
     textAlign: 'center',
   },
-  // (ex: .about-card)
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: colors.cardBackground, 
     borderRadius: 15,
     padding: 20,
     width: '100%',
-    shadowColor: "rgba(80, 52, 89, 0.15)", // (ex: box-shadow)
+    shadowColor: colors.shadow, 
     shadowOffset: {
       width: 0,
       height: 15,
@@ -62,21 +52,19 @@ export const styles = StyleSheet.create({
     elevation: 10,
     marginBottom: 30,
   },
-  // (ex: .description)
   description: {
-    fontSize: 16, // (ex: 1.1em)
-    lineHeight: 24, // (ex: 1.8)
-    color: '#301934', // (ex: --color-dark-blackberry)
-    textAlign: 'center', // Melhor para mobile
+    fontSize: 16, 
+    lineHeight: 24,
+    color: colors.text, 
+    textAlign: 'center', 
     marginBottom: 20,
   },
-  // (ex: .download-cv-button)
   cvButton: {
-    paddingVertical: 12, // (ex: 8px 20px)
+    paddingVertical: 12, 
     paddingHorizontal: 20,
-    backgroundColor: '#8E44AD', // (ex: --color-dusty-purple)
+    backgroundColor: colors.DUSTY_PURPLE, 
     borderRadius: 30,
-    shadowColor: "rgba(80, 52, 89, 0.25)", // (ex: box-shadow)
+    shadowColor: colors.shadow, 
     shadowOffset: {
       width: 0,
       height: 5,
@@ -84,46 +72,40 @@ export const styles = StyleSheet.create({
     shadowOpacity: 1,
     shadowRadius: 10,
     elevation: 5,
-    alignSelf: 'center', // (ex: width: fit-content)
+    alignSelf: 'center',
   },
   cvButtonText: {
-    color: '#FFFFFF',
+    color: colors.textButton, 
     fontWeight: '500',
-    fontSize: 14, // (ex: 0.85em)
+    fontSize: 14, 
     letterSpacing: 1,
   },
-  // (ex: .skills)
   skillsContainer: {
     width: '100%',
   },
-  // (ex: .skill-item)
   skillItem: {
-    marginBottom: 18, // (ex: gap: 20px)
+    marginBottom: 18, 
   },
   skillHeader: {
     flexDirection: 'row',
     justifyContent: 'space-between',
-    marginBottom: 8, // (ex: gap: 8px)
+    marginBottom: 8, 
   },
-  // (ex: .skill-name)
   skillName: {
     fontWeight: '600',
-    color: '#301934', // (ex: --color-dark-blackberry)
+    color: colors.text,
   },
-  // (ex: .skill-percentage)
   skillPercentage: {
     fontSize: 14,
-    color: '#301934',
+    color: colors.text, 
     fontWeight: '500',
   },
-  // (ex: .skill-bar)
   skillBar: {
-    backgroundColor: '#E0BBE4', // (ex: --color-grape-glimmer)
+    backgroundColor: colors.separator, 
     height: 10,
     borderRadius: 5,
     overflow: 'hidden',
   },
-  // (ex: .skill-level)
   skillLevel: {
     height: '100%',
     borderRadius: 5,

@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity, Linking } from 'react-native';
-import { styles, COLORS } from './styles';
 import { FontAwesome } from '@expo/vector-icons';
+import { createStyles } from './styles';
+import { useTheme } from '../../../context/ThemeContext';
 
 const whatsappNumber = '5581995052771';
 const instagramHandle = 'beatrizcosta.dev';
@@ -23,6 +24,9 @@ const handleEmailClick = () => {
 };
 
 export default function ContatoScreen() {
+  const { colors } = useTheme(); 
+  const styles = createStyles(colors); 
+
   return (
     <ScrollView style={styles.section} contentContainerStyle={styles.container}>
       <Text style={styles.sectionTitle}>Vamos trocar uma ideia?</Text>
@@ -55,9 +59,9 @@ export default function ContatoScreen() {
         <View style={styles.contactCard}>
           <FontAwesome name="envelope" size={35} style={styles.contactIcon} />
           <Text style={styles.cardTitle}>Email</Text>
-          <Text style={styles.cardDescription}>Se você prefere a formalidade, pode me mandar um email também!</Text>
+          <Text style={styles.cardDescription}>Se você prefere a formalidade, pode me mandar um e-mail também!</Text>
           <TouchableOpacity style={styles.contactButton} onPress={handleEmailClick}>
-            <Text style={styles.buttonText}>Enviar Email</Text>
+            <Text style={styles.buttonText}>Enviar E-mail</Text>
           </TouchableOpacity>
         </View>
       </View>

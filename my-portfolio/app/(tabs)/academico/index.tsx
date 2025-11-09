@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { styles } from './styles';
 import { Ionicons } from '@expo/vector-icons';
+import { createStyles } from './styles';
+import { useTheme } from '../../../context/ThemeContext';
 
 interface Formacao {
   id: string;
@@ -21,7 +22,7 @@ const FORMACAO_ACADEMICA: Formacao[] = [
     id: '2',
     date: '2024 - Atual',
     title: 'Superior Tecnólogo - UNICAP',
-    description: 'Sistema para Internet',
+    description: 'Sistemas para Internet',
   },
   {
     id: '3',
@@ -37,7 +38,7 @@ const FORMACAO_ACADEMICA: Formacao[] = [
   },
 ];
 
-const TimelineItem = ({ item }: { item: Formacao }) => (
+const TimelineItem = ({ item, styles }: { item: Formacao; styles: any }) => (
   <View style={styles.timelineItem}>
     <View style={styles.timelineIcon}>
       <Ionicons name="school" size={14} color="#ff6347" />
@@ -51,16 +52,19 @@ const TimelineItem = ({ item }: { item: Formacao }) => (
 );
 
 export default function AcademicoScreen() {
+const { colors } = useTheme();
+  const styles = createStyles(colors);
+
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Experiência Acadêmica</Text>
-      
+
       <View style={styles.timelineContainer}>
         <View style={styles.timelineLine} />
-        
+
         <FlatList
           data={FORMACAO_ACADEMICA}
-          renderItem={({ item }) => <TimelineItem item={item} />}
+          renderItem={({ item }) => <TimelineItem item={item} styles={styles} />}
           keyExtractor={(item) => item.id}
           contentContainerStyle={{ paddingVertical: 20 }}
         />

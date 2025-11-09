@@ -51,11 +51,7 @@
         "projectId": "d59dc19d-c5e0-4037-8aef-74784b574835"
       }
     },
-    "runtimeVersion": {
-      "policy": "appVersion"
-    },
-    "updates": {
-      "url": "https://u.expo.dev/d59dc19d-c5e0-4037-8aef-74784b574835"
-    }
+   
+    "owner": "minyonhee"
   }
 }

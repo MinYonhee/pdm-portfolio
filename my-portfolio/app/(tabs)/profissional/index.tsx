@@ -1,7 +1,8 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
-import { styles } from './styles';
 import { FontAwesome } from '@expo/vector-icons';
+import { createStyles } from './styles'; 
+import { useTheme } from '../../../context/ThemeContext'; 
 
 interface Experiencia {
   id: string;
@@ -31,13 +32,11 @@ const EXPERIENCIAS: Experiencia[] = [
   },
 ];
 
-const TimelineItem = ({ item }: { item: Experiencia }) => (
+const TimelineItem = ({ item, styles }: { item: Experiencia; styles: any }) => (
   <View style={styles.timelineItem}>
-    {/* O Ícone (substitindo o .timeline-icon) */}
     <View style={styles.timelineIcon}>
-      <FontAwesome name="briefcase" size={12} color="#ff6347" />
+      <FontAwesome name="briefcase" size={12} color="#ff6347" /> 
     </View>
-    {/* O Conteúdo (substitindo o .timeline-content) */}
     <View style={styles.timelineContent}>
       <Text style={styles.date}>{item.date}</Text>
       <Text style={styles.title}>{item.title}</Text>
@@ -47,23 +46,24 @@ const TimelineItem = ({ item }: { item: Experiencia }) => (
 );
 
 export default function ProfissionalScreen() {
+  const { colors } = useTheme();
+  
+  const styles = createStyles(colors);
+
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Experiência Profissional</Text>
       
-      {/* Container da Timeline (substituindo o .timeline) */}
       <View style={styles.timelineContainer}>
-        {/* A linha vertical (substituindo o .timeline::after) */}
         <View style={styles.timelineLine} />
         
-        {/* A lista de itens */}
         <FlatList
           data={EXPERIENCIAS}
-          renderItem={({ item }) => <TimelineItem item={item} />}
+          renderItem={({ item }) => <TimelineItem item={item} styles={styles} />}
           keyExtractor={(item) => item.id}
           contentContainerStyle={{ paddingVertical: 20 }}
         />
       </View>
-       </View>
+    </View>
   );
 }

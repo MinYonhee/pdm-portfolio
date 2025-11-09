@@ -6,8 +6,9 @@ import {
   TouchableOpacity,
   Linking,
 } from 'react-native';
-import { styles } from './styles';
+import { createStyles } from './styles'; 
 import { FontAwesome } from '@expo/vector-icons';
+import { useTheme } from '../../../context/ThemeContext'; 
 
 interface Projeto {
   id: string;
@@ -44,28 +45,26 @@ const PROJETOS: Projeto[] = [
   {
     id: '5',
     title: 'Imobiliária Urban Valle',
-    link: 'https://github.com/MinYonhee/projeto-frontend',
+    link: 'https://projeto-frontend-iaaf.vercel.app',
     icon: 'building', 
-  },
-  {
-    id: '6',
-    title: 'Jogo da Senha',
-    link: '#', 
-    icon: 'key', 
   },
 ];
 
-const ProjectItem = ({ item }: { item: Projeto }) => (
-  <TouchableOpacity
-    style={styles.portfolioItem}
-    onPress={() => item.link !== '#' && Linking.openURL(item.link)}
-  >
-    <FontAwesome name={item.icon} style={styles.projectIcon} />
-    <Text style={styles.projectTitle}>{item.title}</Text>
-  </TouchableOpacity>
-);
-
 export default function ProjetosScreen() {
+  const { colors } = useTheme();
+  const styles = createStyles(colors);
+
+ 
+  const ProjectItem = ({ item }: { item: Projeto }) => (
+    <TouchableOpacity
+      style={styles.portfolioItem} 
+      onPress={() => item.link !== '#' && Linking.openURL(item.link)}
+    >
+      <FontAwesome name={item.icon} style={styles.projectIcon} />
+      <Text style={styles.projectTitle}>{item.title}</Text>
+    </TouchableOpacity>
+  );
+
   return (
     <View style={styles.section}>
       <Text style={styles.sectionTitle}>Projetos Recentes</Text>
@@ -74,7 +73,7 @@ export default function ProjetosScreen() {
         data={PROJETOS}
         renderItem={({ item }) => <ProjectItem item={item} />}
         keyExtractor={(item) => item.id}
-        numColumns={1} 
+        numColumns={1}
         contentContainerStyle={styles.portfolioGrid}
       />
     </View>
