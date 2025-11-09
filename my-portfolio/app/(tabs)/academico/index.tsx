@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
-import { createStyles } from './styles';
+import { createStyles } from '../../../assets/styles/academicoStyles';
 import { useTheme } from '../../../context/ThemeContext';
 
 interface Formacao {

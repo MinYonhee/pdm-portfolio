@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, FlatList } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { createStyles } from './styles'; 
+import { createStyles } from '../../../assets/styles/professionalStyles'; 
 import { useTheme } from '../../../context/ThemeContext'; 
 
 interface Experiencia {

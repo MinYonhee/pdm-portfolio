@@ -6,7 +6,7 @@ import {
   TouchableOpacity,
   Linking,
 } from 'react-native';
-import { createStyles } from './styles'; 
+import { createStyles } from '../../../assets/styles/projetosStyles'; 
 import { FontAwesome } from '@expo/vector-icons';
 import { useTheme } from '../../../context/ThemeContext'; 
 

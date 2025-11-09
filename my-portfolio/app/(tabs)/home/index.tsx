@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import { useRouter } from 'expo-router';
 import { FontAwesome } from '@expo/vector-icons';
-import { createStyles } from './styles'; 
+import { createStyles } from '../../../assets/styles/homeStyles'; 
 import { useTheme } from '../../../context/ThemeContext'; 
 
 const socialLinks = {

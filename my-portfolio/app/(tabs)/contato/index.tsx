@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, ScrollView, TouchableOpacity, Linking } from 'react-native';
 import { FontAwesome } from '@expo/vector-icons';
-import { createStyles } from './styles';
+import { createStyles } from '../../../assets/styles/contatoStyles';
 import { useTheme } from '../../../context/ThemeContext';
 
 const whatsappNumber = '5581995052771';

@@ -1,6 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 import { View, Text, ScrollView, Image, TouchableOpacity, Linking, Animated } from 'react-native';
-import { createStyles } from './styles'; 
+import { createStyles } from '../../../assets/styles/sobreStyles'; 
 import { useTheme } from '../../../context/ThemeContext'; 
 
 const skillColors = {
