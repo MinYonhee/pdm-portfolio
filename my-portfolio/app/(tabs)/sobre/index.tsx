@@ -74,7 +74,8 @@ export default function SobreScreen() {
 
       <View style={styles.card}>
         <Text style={styles.description}>
-          Eu sou Beatriz Costa, Publicitária e Desenvolvedora Full-Stack. Apaixonada por comunicação e tecnologia, resolvi unir os dois mundos.
+          Eu sou Beatriz Costa, Publicitária e Desenvolvedora Full-Stack. Apaixonada por comunicação e tecnologia, resolvi unir os dois mundos. 
+          O projeto atual foi desenvolvido em React Native com Expo, utilizando React Context, Hooks e FlatList. Ícones com FontAwesome e Ionicons, e links com Linking. Como funcionalidade extra, o app conta com modo claro/escuro.
         </Text>
         <TouchableOpacity style={styles.cvButton} onPress={handlePressCV}>
           <Text style={styles.cvButtonText}>Acesse o meu CV</Text>
