@@ -20,44 +20,42 @@ export default function TabLayout() {
       }}
     >
       <Tabs.Screen
-  name="home/index"
-  options={{
-    title: 'Início',
-    tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
-  }}
-/>
-
+        name="home" 
+        options={{
+          title: 'Início',
+          tabBarIcon: ({ color }) => <FontAwesome size={28} name="home" color={color} />,
+        }}
+      />
       <Tabs.Screen
-        name="sobre/index"
+        name="sobre" 
         options={{
           title: 'Sobre',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="user" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="academico/index"
+        name="academico" 
         options={{
           title: 'Formação',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="graduation-cap" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="profissional/index"
+        name="profissional" 
         options={{
           title: 'Carreira',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="suitcase" color={color} />,
         }}
       />
       <Tabs.Screen
-        name="projetos/index"
+        name="projetos" 
         options={{
           title: 'Projetos',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="briefcase" color={color} />,
         }}
       />
-      {/* Nova aba de Contato */}
       <Tabs.Screen
-        name="contato/index"
+        name="contato" 
         options={{
           title: 'Contato',
           tabBarIcon: ({ color }) => <FontAwesome size={28} name="comments" color={color} />,
